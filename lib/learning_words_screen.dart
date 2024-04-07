@@ -3,69 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:language_learning_app/constants.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 
-/*
-class LearningWordsScreen extends StatefulWidget {
-  const LearningWordsScreen({super.key});
-
-  @override
-  State<LearningWordsScreen> createState() => _LearningWordsScreenState();
-}
-
-class _LearningWordsScreenState extends State<LearningWordsScreen> {
-  var a = ["q", "w", "e"];
-  var aa = ["qq", "ww", "ee"];
-  Color color = Colors.orange;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: backgroundColor,
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            children: [
-              SizedBox(height: 100),
-              FlipCard(
-                front: CardSide(text: "work"),
-                back: CardSide(text: "работа"),
-              ),
-              //Изменения
-              MaterialButton(
-                onPressed: () {  },
-                child: Container(
-                  margin: EdgeInsets.symmetric(vertical: 5),
-                  // height: 45,
-                  alignment: Alignment.center,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Icon(Icons.arrow_forward_rounded, size: 80),
-                ),
-              )
-              // GestureDetector(
-              //   onTap: () => setState(() {
-              //     color = color == Colors.orange ? Colors.green : Colors.orange;
-              //     print(1);
-              //   }),
-              //   child: AnimatedContainer(
-              //     child: Text(color.toString()),
-              //     duration: Duration(seconds: 1),
-              //     width: 100,
-              //     height: 100,
-              //     color: Colors.grey,
-              //   ),
-              // ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-*/
-
 class LearningWordsScreen extends StatefulWidget {
   const LearningWordsScreen({super.key});
 
