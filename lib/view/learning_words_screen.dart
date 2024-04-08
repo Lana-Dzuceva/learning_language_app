@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:language_learning_app/constants.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 
+import '../model/WordCategory.dart';
+
 class LearningWordsScreen extends StatefulWidget {
-  const LearningWordsScreen({super.key});
+  WordCategory wordCategory;
+  LearningWordsScreen({required this.wordCategory, super.key});
 
   @override
   State<LearningWordsScreen> createState() => _LearningWordsScreenState();
 }
-
 
 class _LearningWordsScreenState extends State<LearningWordsScreen> {
   var a = ["q", "w", "e"];
@@ -275,7 +277,6 @@ class _LearningWordsScreenState extends State<LearningWordsScreen> {
     );
   }
 }
-
 
 class CardSide extends StatelessWidget {
   final String text;
