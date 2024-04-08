@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:language_learning_app/constants.dart';
+import 'package:language_learning_app/view/ChooseCategoryScreen.dart';
 
-import 'learning_words_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -21,7 +21,7 @@ class _MainScreenState extends State<MainScreen> {
             // Container(height: 100, width: 100, color: Colors.white, child: Text("Логотип"),),
             SizedBox(height: 300,),
             MenuButton(title: "Учить", onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => LearningWordsScreen(),));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ChooseCategoryScreen(),));
             }),
             MenuButton(title: "Проверить себя", onTap: (){}),
             MenuButton(title: "Все слова", onTap: (){}),

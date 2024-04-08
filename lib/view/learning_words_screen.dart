@@ -1,9 +1,13 @@
 import 'package:flip_card/flip_card.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:language_learning_app/constants.dart';
 
+import '../model/WordCategory.dart';
+
 class LearningWordsScreen extends StatefulWidget {
-  const LearningWordsScreen({super.key});
+  WordCategory wordCategory;
+  LearningWordsScreen({required this.wordCategory, super.key});
 
   @override
   State<LearningWordsScreen> createState() => _LearningWordsScreenState();
@@ -23,9 +27,13 @@ class _LearningWordsScreenState extends State<LearningWordsScreen> {
           child: Column(
             children: [
               SizedBox(height: 100),
-              FlipCard(
-                front: CardSide(text: "work"),
-                back: CardSide(text: "работа"),
+              Stack(
+                children: [
+                  FlipCard(
+                    front: CardSide(text: "work"),
+                    back: CardSide(text: "работа"),
+                  ),
+                ],
               ),
               MaterialButton(
                 onPressed: () {  },
