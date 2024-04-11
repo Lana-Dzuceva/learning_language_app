@@ -1,12 +1,15 @@
-import 'package:flip_card/flip_card.dart';
-import 'package:flutter/cupertino.dart';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:language_learning_app/constants.dart';
-
+import 'package:flutter_card_swiper/flutter_card_swiper.dart';
+import 'package:flutter/src/material/colors.dart';
 import '../model/WordCategory.dart';
+import '../model/word.dart';
 
 class LearningWordsScreen extends StatefulWidget {
   WordCategory wordCategory;
+
   LearningWordsScreen({required this.wordCategory, super.key});
 
   @override
@@ -14,57 +17,43 @@ class LearningWordsScreen extends StatefulWidget {
 }
 
 class _LearningWordsScreenState extends State<LearningWordsScreen> {
-  var a = ["q", "w", "e"];
-  var aa = ["qq", "ww", "ee"];
-  Color color = Colors.orange;
+  // Color color = Color.fromRGBO(100, 123, b, opacity);
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            children: [
-              SizedBox(height: 100),
-              Stack(
-                children: [
-                  FlipCard(
-                    front: CardSide(text: "work"),
-                    back: CardSide(text: "работа"),
-                  ),
-                ],
-              ),
-              MaterialButton(
-                onPressed: () {  },
-                child: Container(
-                  margin: EdgeInsets.symmetric(vertical: 5),
-                  // height: 45,
-                  alignment: Alignment.center,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Icon(Icons.arrow_forward_rounded, size: 80),
-                ),
-              )
-              // GestureDetector(
-              //   onTap: () => setState(() {
-              //     color = color == Colors.orange ? Colors.green : Colors.orange;
-              //     print(1);
-              //   }),
-              //   child: AnimatedContainer(
-              //     child: Text(color.toString()),
-              //     duration: Duration(seconds: 1),
-              //     width: 100,
-              //     height: 100,
-              //     color: Colors.grey,
-              //   ),
-              // ),
-            ],
-          ),
-        ),
+      body: CardSwiper(
+        cardsCount: widget.wordCategory.items.length,
+        cardBuilder: (context, index, percentThresholdX, percentThresholdY) =>
+            Card(word: widget.wordCategory.items[index]),
+      ),
+    );
+  }
+}
+
+class Card extends StatelessWidget {
+  final Word word;
+
+  Card({
+    required this.word,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      //color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
+      //вонючие рандомные слова
+      color: Colors.indigo.shade200,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(word.english, style: const TextStyle(fontSize: 50)),
+          Text(word.russian, style: const TextStyle(fontSize: 30))
+        ],
       ),
     );
   }
@@ -79,7 +68,7 @@ class CardSide extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.orange.shade200,
+        color: Colors.indigoAccent,
         borderRadius: BorderRadius.circular(20),
       ),
       alignment: Alignment.center,
