@@ -45,7 +45,7 @@ class Card extends StatelessWidget {
     return Container(
       width: double.infinity,
       //color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
-      //вонючие рандомные слова
+      //вонючие рандомные цвета
       color: Colors.indigo.shade200,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
