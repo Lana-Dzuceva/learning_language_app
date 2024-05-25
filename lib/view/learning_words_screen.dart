@@ -1,3 +1,4 @@
+import 'package:flip_card/flip_card.dart';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -17,47 +18,336 @@ class LearningWordsScreen extends StatefulWidget {
 }
 
 class _LearningWordsScreenState extends State<LearningWordsScreen> {
-  // Color color = Color.fromRGBO(100, 123, b, opacity);
-
+  //Color color = Color.fromRGBO(100, 123, b, opacity);
+  Color color = Colors.orange;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CardSwiper(
-        cardsCount: widget.wordCategory.items.length,
-        cardBuilder: (context, index, percentThresholdX, percentThresholdY) =>
-            Card(word: widget.wordCategory.items[index]),
+      backgroundColor: backgroundColor,
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            children: [
+              SizedBox(height: 100),
+              Stack(
+                children: [
+                  FlipCard(
+                    front: CardSide(text: "work"),
+                    back: CardSide(text: "работа"),
+                  ),
+                ],
+              ),
+              //Изменения
+              MaterialButton(
+                onPressed: () {  },
+                child: Container(
+                  margin: EdgeInsets.symmetric(vertical: 5),
+                  // height: 45,
+                  alignment: Alignment.center,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Icon(Icons.arrow_forward_rounded, size: 80),
+                ),
+              )
+              // GestureDetector(
+              //   onTap: () => setState(() {
+              //     color = color == Colors.orange ? Colors.green : Colors.orange;
+              //     print(1);
+              //   }),
+              //   child: AnimatedContainer(
+              //     child: Text(color.toString()),
+              //     duration: Duration(seconds: 1),
+              //     width: 100,
+              //     height: 100,
+              //     color: Colors.grey,
+              //   ),
+              // ),
+            ],
+          ),
+        ),
       ),
     );
   }
 }
+*/
 
-class Card extends StatelessWidget {
-  final Word word;
+class LearningWordsScreen extends StatefulWidget {
+  const LearningWordsScreen({super.key});
 
-  Card({
-    required this.word,
-    super.key,
-  });
+  @override
+  State<LearningWordsScreen> createState() => _LearningWordsScreenState();
+}
+
+
+class _LearningWordsScreenState extends State<LearningWordsScreen> {
+  var a = ["q", "w", "e"];
+  var aa = ["qq", "ww", "ee"];
+  Color color = Colors.orange;
+
+  List<Container> cards = [
+    Container(
+      color: Colors.indigo.shade300,
+      child: const Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children:[
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:[
+                  Text("Fear",
+                    style: TextStyle(
+                        fontSize: 50
+                    ),
+                  ),
+                ]
+            ),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:[
+                  Text("Страх",
+                    style: TextStyle(
+                        fontSize: 30
+                    ),
+                  )
+                ]
+            )
+          ]),
+    ),
+    Container(
+      color: Colors.teal.shade200,
+      child: const Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children:[
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:[
+                  Text("Tiny",
+                    style: TextStyle(
+                        fontSize: 50
+                    ),
+                  ),
+                ]
+            ),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:[
+                  Text("Крошечный",
+                    style: TextStyle(
+                        fontSize: 30
+                    ),
+                  )
+                ]
+            )
+          ]),
+    ),
+    Container(
+      color: Colors.lime.shade300,
+      child: const Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children:[
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:[
+                  Text("Immense",
+                    style: TextStyle(
+                        fontSize: 50
+                    ),
+                  ),
+                ]
+            ),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:[
+                  Text("Безмерный",
+                    style: TextStyle(
+                        fontSize: 30
+                    ),
+                  )
+                ]
+            )
+          ]),
+    ),
+    Container(
+      color: Colors.pinkAccent.shade100,
+      child: const Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children:[
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:[
+                  Text("Cat",
+                    style: TextStyle(
+                        fontSize: 50
+                    ),
+                  ),
+                ]
+            ),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:[
+                  Text("Кошка",
+                    style: TextStyle(
+                        fontSize: 30
+                    ),
+                  )
+                ]
+            )
+          ]),
+    ),
+    Container(
+      color: Colors.purple.shade200,
+      child: const Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children:[
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:[
+                  Text("Dog",
+                    style: TextStyle(
+                        fontSize: 50
+                    ),
+                  ),
+                ]
+            ),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:[
+                  Text("Собака",
+                    style: TextStyle(
+                        fontSize: 30
+                    ),
+                  )
+                ]
+            )
+          ]),
+    ),
+    Container(
+      color: Colors.blue.shade200,
+      child: const Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children:[
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:[
+                  Text("Walk",
+                    style: TextStyle(
+                        fontSize: 50
+                    ),
+                  ),
+                ]
+            ),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:[
+                  Text("Идти",
+                    style: TextStyle(
+                        fontSize: 30
+                    ),
+                  )
+                ]
+            )
+          ]),
+    ),
+    Container(
+      color: Colors.red.shade200,
+      child: const Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children:[
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:[
+                  Text("Work",
+                    style: TextStyle(
+                        fontSize: 50
+                    ),
+                  ),
+                ]
+            ),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:[
+                  Text("Работа",
+                    style: TextStyle(
+                        fontSize: 30
+                    ),
+                  )
+                ]
+            )
+          ]),
+    ),
+    Container(
+      color: Colors.grey,
+      child: const Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children:[
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:[
+                  Text("Fork",
+                    style: TextStyle(
+                        fontSize: 50
+                    ),
+                  ),
+                ]
+            ),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:[
+                  Text("Вилка",
+                    style: TextStyle(
+                        fontSize: 30
+                    ),
+                  )
+                ]
+            )
+          ]),
+    ),
+    Container(
+        color: Colors.brown.shade200,
+        child: const Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children:[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                  children:[
+                    Text("Spoon",
+                      style: TextStyle(
+                        fontSize: 50
+                      ),
+                    ),
+                  ]
+              ),
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children:[
+                    Text("Ложка",
+                      style: TextStyle(
+                        fontSize: 30
+                      ),
+                    )
+                  ]
+              )
+            ]),
+    ),
+
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      //color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
-      //вонючие рандомные цвета
-      color: Colors.indigo.shade200,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(word.english, style: const TextStyle(fontSize: 50)),
-          Text(word.russian, style: const TextStyle(fontSize: 30))
-        ],
+    return Scaffold(
+      body: Flexible(
+        child: CardSwiper(
+          cardsCount: cards.length,
+          cardBuilder: (context, index, percentThresholdX, percentThresholdY) => cards[index],
+        ),
       ),
     );
   }
 }
+
 
 class CardSide extends StatelessWidget {
   final String text;
