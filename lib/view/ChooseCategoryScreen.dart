@@ -7,6 +7,7 @@ import 'package:language_learning_app/model/word.dart';
 import 'package:language_learning_app/view/temp.dart';
 import 'package:language_learning_app/model/word.dart';
 
+import '../widgets/category_button.dart';
 import 'learning_words_screen.dart';
 
 class ChooseCategoryScreen extends StatefulWidget {
@@ -70,7 +71,7 @@ class _ChooseCategoryScreenState extends State<ChooseCategoryScreen> {
                         context,
                         MaterialPageRoute(
                           builder: (context) => LearningWordsScreen(
-                            wordCategory: wordList[i],
+                            // wordCategory: wordList[i],
                           ),
                         ));
                   },
@@ -83,44 +84,3 @@ class _ChooseCategoryScreenState extends State<ChooseCategoryScreen> {
   }
 }
 
-class CategoryButton extends StatelessWidget {
-  final String title;
-  final int progress;
-  final Function onTap;
-
-  const CategoryButton(
-      {super.key,
-        required this.title,
-        required this.onTap,
-        required this.progress});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialButton(
-      onPressed: () {
-        onTap();
-      },
-      child: Container(
-        margin: EdgeInsets.symmetric(vertical: 5),
-        padding: EdgeInsets.symmetric(horizontal: 10),
-        height: 45,
-        alignment: Alignment.center,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(title, style: TextStyle(fontSize: 16)),
-            Text(
-              "$progress%",
-              // style: TextStyle(fontSize: 16, fontFamily: "Italy"),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
