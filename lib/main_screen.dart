@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:language_learning_app/constants.dart';
+import 'package:language_learning_app/data.dart';
 import 'package:language_learning_app/model/WordCategory.dart';
-import 'package:language_learning_app/view/ChooseCategoryScreen.dart';
+import 'package:language_learning_app/training_types_enum.dart';
+import 'package:language_learning_app/view/choose_category_screen.dart';
 import 'package:language_learning_app/view/test_screen.dart';
 import 'package:language_learning_app/widgets/category_button.dart';
 
 import 'model/word.dart';
-
-
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -25,45 +25,40 @@ class _MainScreenState extends State<MainScreen> {
         child: Column(
           children: [
             // Container(height: 100, width: 100, color: Colors.white, child: Text("Логотип"),),
-            SizedBox(height: 300,),
-            CategoryButton(title: "Учить", onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => ChooseCategoryScreen(),));
+            SizedBox(
+              height: 300,
+            ),
+            CategoryButton(
+                title: "Учить",
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ChooseCategoryScreen(
+                          trainingType: TrainingTypes.learn,
+                        ),
+                      ));
+                }),
+            CategoryButton(
+                title: "Проверить себя",
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ChooseCategoryScreen(
+                          trainingType: TrainingTypes.checkYourself,
+                        ),
+                      ));
+                }),
+            CategoryButton(title: "Все слова", onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ChooseCategoryScreen(
+                      trainingType: TrainingTypes.allWords,
+                    ),
+                  ));
             }),
-            CategoryButton(title: "Проверить себя", onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => TestScreen(testWords:     WordCategory(
-                  title: "food",
-                  items: [
-                    Word(
-                        english: 'pizza',
-                        russian: 'пица',
-                        countViews: 0,
-                        progress: '',
-                        isLearned: false),
-                    Word(
-                        english: 'cucumber',
-                        russian: 'огурец',
-                        countViews: 0,
-                        progress: '',
-                        isLearned: false),
-                    Word(
-                        english: 'tomato',
-                        russian: 'помидор',
-                        countViews: 0,
-                        progress: '',
-                        isLearned: false),
-                    Word(
-                        english: 'hren',
-                        russian: 'хрен',
-                        countViews: 0,
-                        progress: '',
-                        isLearned: false),
-                  ],
-                  totalProgress: 10),
-              )));
-
-            }),
-            CategoryButton(title: "Все слова", onTap: (){}),
-
           ],
         ),
       ),

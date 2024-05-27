@@ -76,7 +76,8 @@ import '../model/word.dart';
 
 
 class LearningWordsScreen extends StatefulWidget {
-  const LearningWordsScreen({super.key});
+  final WordCategory wordCategory;
+  const LearningWordsScreen({super.key, required this.wordCategory});
 
   @override
   State<LearningWordsScreen> createState() => _LearningWordsScreenState();
@@ -84,8 +85,6 @@ class LearningWordsScreen extends StatefulWidget {
 
 
 class _LearningWordsScreenState extends State<LearningWordsScreen> {
-  var a = ["q", "w", "e"];
-  var aa = ["qq", "ww", "ee"];
   Color color = Colors.orange;
 
   List<Container> cards = [
