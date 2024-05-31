@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:language_learning_app/constants.dart';
@@ -72,6 +71,7 @@ class CardSide extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
       ),
       alignment: Alignment.center,
+
       margin: EdgeInsets.all(20),
       height: 300,
       width: 300,
