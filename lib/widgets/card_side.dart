@@ -9,7 +9,8 @@ class CardSide extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.indigoAccent,
+        color: Colors.indigo.shade600,
+        //Colors.indigoAccent,
         borderRadius: BorderRadius.circular(20),
       ),
       alignment: Alignment.center,

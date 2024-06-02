@@ -640,72 +640,116 @@ class _ChooseCategoryScreenState extends State<ChooseCategoryScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: backgroundColor,
-      body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 150.0),
-            child: ListView.builder(
-              itemCount: wordList.length,
-              itemBuilder: (context, i) {
-                return CategoryButton(
-                  title: wordList[i].title,
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => LearningWordsScreen(
-                            wordCategory: wordList[i],
+        return Scaffold(
+              backgroundColor: backgroundColor,
+              body: SafeArea(
+                    child: Padding(
+                          padding: const EdgeInsets.only(top: 150.0),
+                          child: ListView.builder(
+                                itemCount: wordList.length,
+                                itemBuilder: (context, i) {
+                                      return CategoryButton(
+                                            title: wordList[i].title,
+                                            onTap: () {
+                                                  Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                              builder: (context) => LearningWordsScreen(
+                                                                    wordCategory: wordList[i],
+                                                              ),
+                                                        ),
+                                                  );
+                                            },
+                                            progress: wordList[i].totalProgress,
+                                      );
+                                },
                           ),
-                        ));
-                  },
-                  progress: wordList[i].totalProgress,
-                );
-              },
-            ),
-          )),
-    );
+                    ),
+              ),
+        );
   }
 }
 
 class CategoryButton extends StatelessWidget {
-  final String title;
-  final int progress;
-  final Function onTap;
+      final String title;
+      final int progress;
+      final Function onTap;
 
-  const CategoryButton(
-      {super.key,
-        required this.title,
-        required this.onTap,
-        required this.progress});
+      const CategoryButton({
+            super.key,
+            required this.title,
+            required this.onTap,
+            required this.progress,
+      });
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialButton(
-      onPressed: () {
-        onTap();
-      },
-      child: Container(
-        margin: EdgeInsets.symmetric(vertical: 5),
-        padding: EdgeInsets.symmetric(horizontal: 10),
-        height: 45,
-        alignment: Alignment.center,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(title, style: TextStyle(fontSize: 16)),
-            Text(
-              "$progress%",
-              // style: TextStyle(fontSize: 16, fontFamily: "Italy"),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+      @override
+      Widget build(BuildContext context) {
+            return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                  child: MaterialButton(
+                        onPressed: () {
+                              onTap();
+                        },
+                        child: Container(
+                              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                              decoration: BoxDecoration(
+                                    gradient: LinearGradient(
+                                          colors: [Colors.blueAccent, Colors.lightBlueAccent],
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                    ),
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                          BoxShadow(
+                                                color: Colors.black26,
+                                                offset: Offset(0, 4),
+                                                blurRadius: 4,
+                                          ),
+                                    ],
+                              ),
+                              child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                          Text(
+                                                title,
+                                                style: TextStyle(
+                                                      fontSize: 18,
+                                                      color: Colors.white,
+                                                ),
+                                          ),
+                                          Row(
+                                                children: [
+                                                      Text(
+                                                            "$progress%",
+                                                            style: TextStyle(
+                                                                  fontSize: 16,
+                                                                  color: Colors.white,
+                                                            ),
+                                                      ),
+                                                      SizedBox(width: 10),
+                                                      Container(
+                                                            width: 50,
+                                                            height: 10,
+                                                            decoration: BoxDecoration(
+                                                                  color: Colors.white,
+                                                                  borderRadius: BorderRadius.circular(5),
+                                                            ),
+                                                            child: FractionallySizedBox(
+                                                                  widthFactor: progress / 100,
+                                                                  child: Container(
+                                                                        decoration: BoxDecoration(
+                                                                              color: Colors.green,
+                                                                              borderRadius: BorderRadius.circular(5),
+                                                                        ),
+                                                                  ),
+                                                            ),
+                                                      ),
+                                                ],
+                                          ),
+                                    ],
+                              ),
+                        ),
+                  ),
+            );
+      }
 }
