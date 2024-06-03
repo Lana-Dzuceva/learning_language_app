@@ -8,6 +8,7 @@ import 'package:flutter/src/material/colors.dart';
 import '../model/WordCategory.dart';
 import '../model/word.dart';
 
+
 // class LearningWordsScreen extends StatefulWidget {
 //   WordCategory wordCategory;
 //
@@ -77,274 +78,155 @@ import '../model/word.dart';
 
 class LearningWordsScreen extends StatefulWidget {
   final WordCategory wordCategory;
-  const LearningWordsScreen({super.key, required this.wordCategory});
+
+  const LearningWordsScreen({required this.wordCategory, super.key});
 
   @override
   State<LearningWordsScreen> createState() => _LearningWordsScreenState();
 }
 
-
 class _LearningWordsScreenState extends State<LearningWordsScreen> {
-  Color color = Colors.orange;
-
-  List<Container> cards = [
-    Container(
-      color: Colors.indigo.shade300,
-      child: const Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children:[
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children:[
-                  Text("Fear",
-                    style: TextStyle(
-                        fontSize: 50
-                    ),
-                  ),
-                ]
-            ),
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children:[
-                  Text("Страх",
-                    style: TextStyle(
-                        fontSize: 30
-                    ),
-                  )
-                ]
-            )
-          ]),
-    ),
-    Container(
-      color: Colors.teal.shade200,
-      child: const Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children:[
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children:[
-                  Text("Tiny",
-                    style: TextStyle(
-                        fontSize: 50
-                    ),
-                  ),
-                ]
-            ),
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children:[
-                  Text("Крошечный",
-                    style: TextStyle(
-                        fontSize: 30
-                    ),
-                  )
-                ]
-            )
-          ]),
-    ),
-    Container(
-      color: Colors.lime.shade300,
-      child: const Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children:[
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children:[
-                  Text("Immense",
-                    style: TextStyle(
-                        fontSize: 50
-                    ),
-                  ),
-                ]
-            ),
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children:[
-                  Text("Безмерный",
-                    style: TextStyle(
-                        fontSize: 30
-                    ),
-                  )
-                ]
-            )
-          ]),
-    ),
-    Container(
-      color: Colors.pinkAccent.shade100,
-      child: const Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children:[
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children:[
-                  Text("Cat",
-                    style: TextStyle(
-                        fontSize: 50
-                    ),
-                  ),
-                ]
-            ),
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children:[
-                  Text("Кошка",
-                    style: TextStyle(
-                        fontSize: 30
-                    ),
-                  )
-                ]
-            )
-          ]),
-    ),
-    Container(
-      color: Colors.purple.shade200,
-      child: const Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children:[
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children:[
-                  Text("Dog",
-                    style: TextStyle(
-                        fontSize: 50
-                    ),
-                  ),
-                ]
-            ),
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children:[
-                  Text("Собака",
-                    style: TextStyle(
-                        fontSize: 30
-                    ),
-                  )
-                ]
-            )
-          ]),
-    ),
-    Container(
-      color: Colors.blue.shade200,
-      child: const Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children:[
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children:[
-                  Text("Walk",
-                    style: TextStyle(
-                        fontSize: 50
-                    ),
-                  ),
-                ]
-            ),
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children:[
-                  Text("Идти",
-                    style: TextStyle(
-                        fontSize: 30
-                    ),
-                  )
-                ]
-            )
-          ]),
-    ),
-    Container(
-      color: Colors.red.shade200,
-      child: const Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children:[
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children:[
-                  Text("Work",
-                    style: TextStyle(
-                        fontSize: 50
-                    ),
-                  ),
-                ]
-            ),
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children:[
-                  Text("Работа",
-                    style: TextStyle(
-                        fontSize: 30
-                    ),
-                  )
-                ]
-            )
-          ]),
-    ),
-    Container(
-      color: Colors.grey,
-      child: const Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children:[
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children:[
-                  Text("Fork",
-                    style: TextStyle(
-                        fontSize: 50
-                    ),
-                  ),
-                ]
-            ),
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children:[
-                  Text("Вилка",
-                    style: TextStyle(
-                        fontSize: 30
-                    ),
-                  )
-                ]
-            )
-          ]),
-    ),
-    Container(
-        color: Colors.brown.shade200,
-        child: const Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children:[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                  children:[
-                    Text("Spoon",
-                      style: TextStyle(
-                        fontSize: 50
-                      ),
-                    ),
-                  ]
-              ),
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children:[
-                    Text("Ложка",
-                      style: TextStyle(
-                        fontSize: 30
-                      ),
-                    )
-                  ]
-              )
-            ]),
-    ),
-
+  final List<Color> cardColors = [
+    Colors.indigoAccent,
+    Colors.blueAccent,
+    Colors.green.shade400,
+    Colors.orange.shade400,
+    Colors.redAccent,
+    Colors.purpleAccent,
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Flexible(
-        child: CardSwiper(
-          cardsCount: cards.length,
-          cardBuilder: (context, index, percentThresholdX, percentThresholdY) => cards[index],
-        ),
+      body: CardSwiper(
+        cardsCount: widget.wordCategory.items.length,
+        cardBuilder: (context, index, percentThresholdX, percentThresholdY) =>
+            WordCard(
+              word: widget.wordCategory.items[index],
+              color: cardColors[index % cardColors.length],
+            ),
       ),
     );
   }
 }
 
+class WordCard extends StatelessWidget {
+  final Word word;
+  final Color color;
 
+  const WordCard({
+    required this.word,
+    required this.color,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [color, color.withOpacity(1)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.black26,
+            offset: Offset(0, 4),
+            blurRadius: 10,
+          ),
+        ],
+      ),
+      margin: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            word.english,
+            style: const TextStyle(
+              fontSize: 50,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              shadows: [
+                Shadow(
+                  offset: Offset(2, 2),
+                  blurRadius: 3,
+                  color: Colors.black45,
+                ),
+              ],
+            ),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 20),
+          Text(
+            word.russian,
+            style: const TextStyle(
+              fontSize: 30,
+              color: Colors.white70,
+              shadows: [
+                Shadow(
+                  offset: Offset(1, 1),
+                  blurRadius: 2,
+                  color: Colors.black45,
+                ),
+              ],
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// class CardSide extends StatelessWidget {
+//   final String text;
+//
+//   const CardSide({super.key, required this.text});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       decoration: BoxDecoration(
+//         gradient: LinearGradient(
+//           colors: [Colors.indigoAccent, Colors.blueAccent],
+//           begin: Alignment.topLeft,
+//           end: Alignment.bottomRight,
+//         ),
+//         borderRadius: BorderRadius.circular(20),
+//         boxShadow: [
+//           BoxShadow(
+//             color: Colors.black26,
+//             offset: Offset(0, 4),
+//             blurRadius: 10,
+//           ),
+//         ],
+//       ),
+//       alignment: Alignment.center,
+//       margin: EdgeInsets.all(20),
+//       padding: EdgeInsets.all(20),
+//       height: 300,
+//       width: 300,
+//       child: Text(
+//         text,
+//         style: TextStyle(
+//           fontSize: 25,
+//           color: Colors.white,
+//           fontWeight: FontWeight.bold,
+//           shadows: [
+//             Shadow(
+//               offset: Offset(2, 2),
+//               blurRadius: 3,
+//               color: Colors.black45,
+//             ),
+//           ],
+//         ),
+//         textAlign: TextAlign.center,
+//       ),
+//     );
+//   }
+// }

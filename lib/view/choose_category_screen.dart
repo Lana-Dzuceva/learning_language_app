@@ -11,6 +11,7 @@ import 'package:language_learning_app/view/test_screen.dart';
 
 import '../training_types_enum.dart';
 import '../widgets/category_button.dart';
+import '../widgets/category_button2.dart';
 import 'all_words_screen.dart';
 import 'learning_words_screen.dart';
 
@@ -24,13 +25,6 @@ class ChooseCategoryScreen extends StatefulWidget {
 }
 
 class _ChooseCategoryScreenState extends State<ChooseCategoryScreen> {
-  List<WordCategory> wordList = [
-    category1,
-    WordCategory(title: "Numbres2", items: [], totalProgress: 10),
-    WordCategory(title: "Numbres3", items: [], totalProgress: 10),
-    WordCategory(title: "Numbres4", items: [], totalProgress: 10),
-    WordCategory(title: "Numbres5", items: [], totalProgress: 10),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +36,7 @@ class _ChooseCategoryScreenState extends State<ChooseCategoryScreen> {
         child: ListView.builder(
           itemCount: wordList.length,
           itemBuilder: (context, i) {
-            return CategoryButton(
+            return CategoryButton2(
               title: wordList[i].title,
               onTap: () {
                 switch (widget.trainingType) {
